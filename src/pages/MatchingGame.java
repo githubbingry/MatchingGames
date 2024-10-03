@@ -166,10 +166,11 @@ public class MatchingGame extends javax.swing.JPanel {
         int round = Integer.parseInt(roundstr[1])+1;
         
         String[] correctstr = lblCorrect.getText().split(" : ");
-        int correct = score;
+        int correct = Integer.parseInt(correctstr[1]);
         
         String[] wrongstr = lblWrong.getText().split(" : ");
         int wrong = round-correct-1;
+        wrong = wrong < 0 ? 0 : wrong;
         
         int[] info = checkRound(round, correct, wrong);
         lblRound.setText(roundstr[0]+" : "+info[0]);
